@@ -1,5 +1,7 @@
 /.env
 /.venv
 
+__pycache__
+
 # This seems to be created by spotipy.
 /.cache

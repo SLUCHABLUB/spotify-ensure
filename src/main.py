@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 
+from pagination import get_all
+
 
 def main():
     load_dotenv()
@@ -10,9 +12,9 @@ def main():
 
     spotify: Spotify = Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
-    result: dict[str, str] = spotify.current_user_playlists()
+    playlists = get_all(spotify.current_user_playlists)
 
-    for playlist in result["items"]:
+    for playlist in playlists:
         print(playlist["name"])
 
 
