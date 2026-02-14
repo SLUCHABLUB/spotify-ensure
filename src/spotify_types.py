@@ -1,11 +1,13 @@
 from pydantic import BaseModel
 
+type json = dict[str, str]
+
 
 class Page[Item](BaseModel):
-    href: str
-    limit: int
     next: str | None
-    offset: int
-    previous: str | None
-    total: int
     items: list[Item]
+
+
+class SimplifiedPlaylist(BaseModel):
+    name: str
+    id: str

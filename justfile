@@ -1,6 +1,6 @@
 @check:
-    uvx ty check
+    uvx pyrefly check
     uvx ruff check
 
-@run:
+@run: check
     uv run src/main.py
