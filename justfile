@@ -2,5 +2,5 @@
     uvx pyrefly check
     uvx ruff check
 
-@run: check
-    uv run src/main.py
+@run *arguments: check
+    uv run src/main.py {{ arguments }}
