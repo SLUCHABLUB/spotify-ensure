@@ -4,9 +4,9 @@ import spotipy
 
 
 class Spotify(spotipy.Spotify):
-    def check_users_saved_items(self, uris: list[str]) -> list[bool]:
+    def check_users_saved_items(self, uris: Iterable[str]) -> list[bool]:
         # pyrefly: ignore[bad-return]
-        return self._get("/me/library/contains?uris=" + ",".join(uris))
+        return self._get("me/library/contains?uris=" + ",".join(uris))
 
     @override
     def playlist_items(

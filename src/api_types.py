@@ -2,8 +2,6 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-type json = dict[str, str]
-
 
 class Page[Item](BaseModel):
     next: str | None
@@ -28,4 +26,8 @@ class Track(BaseModel):
 
 class Episode(BaseModel):
     type: Literal["episode"]
+    name: str
+
+
+class Playlist(BaseModel):
     name: str

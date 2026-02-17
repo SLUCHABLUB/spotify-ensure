@@ -2,7 +2,7 @@ from typing import Any, Protocol
 
 from pydantic import BaseModel
 
-from spotify_types import Page, json
+from api_types import Page
 
 
 class PaginatedEndpoint(Protocol):
@@ -20,7 +20,7 @@ def get_all[Item: BaseModel](
     while True:
         raw_response: Any = function(offset=offset)
 
-        response: Page[json] = Page.model_validate(raw_response)
+        response: Page = Page.model_validate(raw_response)
 
         page_items = map(model.model_validate, response.items)
 
